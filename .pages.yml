@@ -1,0 +1,408 @@
+media:
+  input: assets/images
+  output: assets/images
+  rename: safe
+  extensions: [jpg, jpeg, png, webp]
+
+content:
+  - name: global
+    label: Réglages généraux
+    type: file
+    path: content/global.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - { name: booking_label, label: Texte du bouton rendez-vous, type: string }
+      - { name: booking_url, label: Lien du bouton rendez-vous, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: phone, label: Téléphone, type: string }
+      - { name: address, label: Localisation courte, type: string }
+      - { name: footer_location, label: Texte du pied de page, type: string }
+
+  - name: home
+    label: Page Accueil
+    type: file
+    path: content/home.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Grand bandeau d’accueil
+        type: object
+        fields:
+          - { name: eyebrow, label: Petit texte au-dessus du titre, type: string }
+          - { name: title, label: Grand titre, type: string }
+          - { name: text, label: Texte sous le titre, type: text }
+          - { name: image, label: Image de fond, type: image }
+      - name: doors
+        label: Les 3 portes d’entrée
+        type: object
+        fields:
+          - { name: title, label: Titre de la section, type: string }
+          - { name: subtitle, label: Sous-titre, type: text }
+          - name: precis
+            label: Besoin précis
+            type: object
+            fields:
+              - { name: title, label: Titre, type: string }
+              - { name: text, label: Texte, type: text }
+          - name: accompagnement
+            label: Accompagnement
+            type: object
+            fields:
+              - { name: title, label: Titre, type: string }
+              - { name: text, label: Texte, type: text }
+          - name: formation
+            label: Formation
+            type: object
+            fields:
+              - { name: title, label: Titre, type: string }
+              - { name: text, label: Texte, type: text }
+      - name: method
+        label: Bloc « Vous n’avez pas à choisir »
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - { name: p1, label: Paragraphe 1, type: text }
+          - { name: p2, label: Paragraphe 2, type: text }
+          - { name: image, label: Image, type: image }
+      - name: approaches
+        label: Mes principales approches
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - name: kinesio
+            label: Kinésiologie
+            type: object
+            fields: &approach_fields
+              - { name: title, label: Titre, type: string }
+              - { name: text, label: Texte, type: text }
+              - { name: image, label: Image, type: image }
+          - name: emotion
+            label: Libération émotionnelle
+            type: object
+            fields: *approach_fields
+          - name: reboutement
+            label: Reboutement
+            type: object
+            fields: *approach_fields
+          - name: bioenergie
+            label: Bioénergie
+            type: object
+            fields: *approach_fields
+      - name: testimonial
+        label: Témoignage
+        type: object
+        fields:
+          - { name: title, label: Titre de section, type: string }
+          - { name: quote, label: Témoignage, type: text }
+          - { name: author, label: Nom / signature, type: string }
+      - name: cta
+        label: Bandeau de fin
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - { name: image, label: Image de fond, type: image }
+
+  - name: seances
+    label: Page Séances
+    type: file
+    path: content/seances.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Grand bandeau
+        type: object
+        fields: &hero_fields
+          - { name: eyebrow, label: Petit texte, type: string }
+          - { name: title, label: Grand titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - { name: image, label: Image de fond, type: image }
+      - name: kinesiologie
+        label: Kinésiologie
+        type: object
+        fields: &service_fields
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: price, label: Tarif, type: string }
+          - { name: image, label: Image, type: image }
+      - name: emotion
+        label: Libération émotionnelle
+        type: object
+        fields: *service_fields
+      - name: reboutement
+        label: Reboutement
+        type: object
+        fields: *service_fields
+      - name: bioenergie
+        label: Bioénergie
+        type: object
+        fields: *service_fields
+      - name: info
+        label: Nombre de séances
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - name: cta
+        label: Bandeau de fin
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - { name: image, label: Image, type: image }
+
+  - name: accompagnements
+    label: Page Accompagnements
+    type: file
+    path: content/accompagnements.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Grand bandeau
+        type: object
+        fields: *hero_fields
+      - name: intro
+        label: Introduction
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - name: steps
+        label: Les 4 étapes
+        type: object
+        fields:
+          - { name: one_title, label: Étape 1 - titre, type: string }
+          - { name: one_text, label: Étape 1 - texte, type: text }
+          - { name: two_title, label: Étape 2 - titre, type: string }
+          - { name: two_text, label: Étape 2 - texte, type: text }
+          - { name: three_title, label: Étape 3 - titre, type: string }
+          - { name: three_text, label: Étape 3 - texte, type: text }
+          - { name: four_title, label: Étape 4 - titre, type: string }
+          - { name: four_text, label: Étape 4 - texte, type: text }
+      - name: plans_intro
+        label: Présentation des formules
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - name: plan1
+        label: Formule 1
+        type: object
+        fields: &plan_fields
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Nom, type: string }
+          - { name: sessions, label: Nombre de séances, type: string }
+          - { name: price, label: Tarif, type: string }
+          - { name: item1, label: Point 1, type: string }
+          - { name: item2, label: Point 2, type: string }
+          - { name: item3, label: Point 3, type: string }
+      - name: plan2
+        label: Formule 2
+        type: object
+        fields: *plan_fields
+      - name: plan3
+        label: Formule 3
+        type: object
+        fields: *plan_fields
+      - name: custom
+        label: Bloc sur mesure
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - { name: p1, label: Paragraphe 1, type: text }
+          - { name: p2, label: Paragraphe 2, type: text }
+          - { name: image, label: Image, type: image }
+      - name: practical
+        label: Modalités pratiques
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: one_title, label: Bloc 1 - titre, type: string }
+          - { name: one_text, label: Bloc 1 - texte, type: text }
+          - { name: two_title, label: Bloc 2 - titre, type: string }
+          - { name: two_text, label: Bloc 2 - texte, type: text }
+          - { name: three_title, label: Bloc 3 - titre, type: string }
+          - { name: three_text, label: Bloc 3 - texte, type: text }
+      - name: cta
+        label: Bandeau de fin
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - { name: image, label: Image, type: image }
+
+  - name: formations
+    label: Page Formations
+    type: file
+    path: content/formations.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Grand bandeau
+        type: object
+        fields: *hero_fields
+      - name: intro
+        label: Introduction
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - name: feature1
+        label: Avantage 1
+        type: object
+        fields: &feature_fields
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - name: feature2
+        label: Avantage 2
+        type: object
+        fields: *feature_fields
+      - name: feature3
+        label: Avantage 3
+        type: object
+        fields: *feature_fields
+      - name: feature4
+        label: Avantage 4
+        type: object
+        fields: *feature_fields
+      - name: workshops
+        label: Titre des ateliers
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+      - name: training1
+        label: Atelier 1
+        type: object
+        fields: &training_fields
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Description, type: text }
+          - { name: price, label: Tarif, type: string }
+          - { name: image, label: Image, type: image }
+      - name: training2
+        label: Atelier 2
+        type: object
+        fields: *training_fields
+      - name: courses
+        label: Titre des formations
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+      - name: training3
+        label: Formation 1
+        type: object
+        fields: *training_fields
+      - name: training4
+        label: Formation 2
+        type: object
+        fields: *training_fields
+      - name: cta
+        label: Bandeau de fin
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - { name: image, label: Image, type: image }
+
+  - name: apropos
+    label: Page À propos
+    type: file
+    path: content/apropos.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Grand bandeau
+        type: object
+        fields: *hero_fields
+      - name: story
+        label: Mon parcours
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - { name: p1, label: Paragraphe 1, type: text }
+          - { name: p2, label: Paragraphe 2, type: text }
+          - { name: p3, label: Paragraphe 3, type: text }
+          - { name: portrait, label: Ma photo, type: image }
+      - name: vision
+        label: Ma vision
+        type: object
+        fields:
+          - { name: kicker, label: Petit titre, type: string }
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+      - name: values
+        label: Mes valeurs
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: one, label: Valeur 1, type: string }
+          - { name: two, label: Valeur 2, type: string }
+          - { name: three, label: Valeur 3, type: string }
+          - { name: four, label: Valeur 4, type: string }
+      - name: practical
+        label: Informations pratiques
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: one_title, label: Bloc 1 - titre, type: string }
+          - { name: one_text, label: Bloc 1 - texte, type: text }
+          - { name: two_title, label: Bloc 2 - titre, type: string }
+          - { name: two_text, label: Bloc 2 - texte, type: text }
+          - { name: three_title, label: Bloc 3 - titre, type: string }
+          - { name: three_text, label: Bloc 3 - texte, type: text }
+
+  - name: contact
+    label: Page Contact
+    type: file
+    path: content/contact.json
+    format: json
+    operations:
+      delete: false
+    fields:
+      - name: hero
+        label: Grand bandeau
+        type: object
+        fields: *hero_fields
+      - name: info
+        label: Coordonnées
+        type: object
+        fields:
+          - { name: title, label: Titre du bloc, type: string }
+          - { name: address_label, label: Libellé adresse, type: string }
+          - { name: address, label: Adresse / zone, type: string }
+          - { name: address_note, label: Petite précision adresse, type: text }
+          - { name: phone_label, label: Libellé téléphone, type: string }
+          - { name: phone, label: Téléphone, type: string }
+          - { name: phone_note, label: Petite précision téléphone, type: text }
+          - { name: email_label, label: Libellé email, type: string }
+          - { name: email, label: Email, type: string }
+          - { name: booking_label, label: Libellé rendez-vous, type: string }
+          - { name: booking_note, label: Texte rendez-vous, type: text }
+      - name: form
+        label: Formulaire
+        type: object
+        fields:
+          - { name: title, label: Titre, type: string }
+          - { name: text, label: Texte, type: text }
+          - { name: name_label, label: Champ nom, type: string }
+          - { name: email_label, label: Champ email, type: string }
+          - { name: message_label, label: Champ message, type: string }
+          - { name: button, label: Bouton envoyer, type: string }

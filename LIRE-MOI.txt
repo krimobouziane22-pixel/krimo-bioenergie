@@ -1,0 +1,59 @@
+KRIMO BIOÉNERGIE — VERSION FACILE À MODIFIER
+=============================================
+
+Cette version conserve l'apparence du site mais sépare le CONTENU du DESIGN.
+Vous n'avez normalement plus besoin de toucher aux fichiers HTML ou CSS.
+
+LE PRINCIPE
+-----------
+Le design reste dans les fichiers du site.
+Les textes, prix et chemins d'images sont dans le dossier /content.
+Le fichier .pages.yml prépare une interface d'administration visuelle avec Pages CMS.
+
+UNE FOIS LE SITE CONNECTÉ À GITHUB
+----------------------------------
+1. Ouvrez https://app.pagescms.org
+2. Connectez-vous avec GitHub.
+3. Ouvrez le dépôt du site Krimo Bioénergie.
+4. Choisissez dans la colonne de gauche :
+   - Réglages généraux
+   - Page Accueil
+   - Page Séances
+   - Page Accompagnements
+   - Page Formations
+   - Page À propos
+   - Page Contact
+5. Modifiez le champ souhaité.
+6. Cliquez sur Enregistrer.
+
+Vous ne voyez pas le code du site et vous ne touchez pas à la mise en page.
+
+POUR CHANGER UNE IMAGE
+-----------------------
+Dans l'interface d'administration, cliquez sur le champ Image concerné,
+choisissez ou importez la nouvelle photo puis Enregistrer.
+Le cadrage du site reste identique automatiquement grâce au design CSS.
+
+IMPORTANT
+---------
+Les images présentes dans cette première version proviennent de la maquette de travail.
+Certaines devront être remplacées par des fichiers HD propres avant la mise en ligne finale.
+La nouvelle interface rend précisément ce remplacement très simple.
+
+DOSSIER CONTENT
+---------------
+global.json             = email, téléphone, bouton de rendez-vous
+home.json               = page d'accueil
+seances.json            = prestations et tarifs
+accompagnements.json    = formules et tarifs
+formations.json         = ateliers et formations
+apropos.json             = parcours, vision, photo
+contact.json             = coordonnées et formulaire
+
+NE PAS MODIFIER SI VOUS NE LE SOUHAITEZ PAS
+-------------------------------------------
+assets/style.css         = apparence générale
+assets/content-loader.js = liaison entre contenus et site
+les fichiers .html       = structure des pages
+
+Le but de cette version est justement de ne plus avoir à toucher à ces fichiers.
